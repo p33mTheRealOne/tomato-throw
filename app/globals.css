@@ -1,0 +1,358 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Arial Black", Impact, "Noto Sans Thai", "Sarabun", system-ui, sans-serif;
+  background: repeating-conic-gradient(from 0deg at 50% 40%, #ffe600 0 9deg, #ffc800 9deg 18deg);
+  background-attachment: fixed;
+  color: #111;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ============ HOME (meme style) ============ */
+.home {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2.4vh, 22px);
+  padding: 24px 16px 84px;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.home-tomato {
+  width: clamp(90px, 22vmin, 170px);
+  height: auto;
+  animation: bounce 0.9s ease-in-out infinite alternate;
+  filter: drop-shadow(0 10px 0 rgba(0, 0, 0, 0.25));
+}
+
+.meme-title {
+  margin: 0;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-weight: 900;
+  font-size: clamp(44px, 13vw, 120px);
+  line-height: 0.92;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  -webkit-text-stroke: clamp(3px, 0.7vw, 7px) #000;
+  paint-order: stroke fill;
+  text-shadow: 5px 6px 0 #000;
+  transform: rotate(-3deg);
+  animation: wobble 2.2s ease-in-out infinite;
+}
+.meme-title span {
+  color: #ff2d20;
+}
+
+.meme-sub {
+  margin: 0;
+  font-size: clamp(14px, 3.6vw, 20px);
+  font-weight: 800;
+  background: #000;
+  color: #fff;
+  padding: 6px 14px;
+  transform: rotate(1.5deg);
+}
+
+.btn-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: min(100%, 420px);
+  margin-top: 6px;
+}
+
+.meme-btn {
+  font-family: inherit;
+  font-weight: 900;
+  font-size: clamp(20px, 5.4vw, 30px);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: #ff2d20;
+  border: 5px solid #000;
+  border-radius: 14px;
+  padding: 16px 22px;
+  box-shadow: 7px 8px 0 #000;
+  cursor: pointer;
+  text-shadow: 2px 2px 0 #000;
+  transition: transform 0.08s, box-shadow 0.08s;
+  display: inline-block;
+}
+.meme-btn:hover:not(:disabled) {
+  transform: rotate(-2deg) scale(1.04);
+}
+.meme-btn:active:not(:disabled) {
+  transform: translate(5px, 6px);
+  box-shadow: 2px 2px 0 #000;
+}
+.meme-btn:disabled {
+  background: #9a9a9a;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+.meme-btn-blue {
+  background: #1e6bff;
+}
+.meme-btn-red {
+  background: #ff2d20;
+}
+.meme-btn-green {
+  background: #19b84a;
+}
+.meme-btn-small {
+  font-size: clamp(16px, 4.4vw, 22px);
+  padding: 10px 16px;
+  box-shadow: 5px 6px 0 #000;
+  background: #1e6bff;
+}
+
+.polaroid {
+  background: #fff;
+  border: 5px solid #000;
+  padding: 8px 8px 22px;
+  box-shadow: 7px 8px 0 #000;
+  transform: rotate(3deg);
+  animation: pop 0.35s cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+.polaroid img {
+  display: block;
+  max-width: min(60vw, 240px);
+  max-height: 22vh;
+  object-fit: cover;
+}
+
+.sticker {
+  width: min(100%, 460px);
+  border: 5px solid #000;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-weight: 900;
+  box-shadow: 6px 7px 0 #000;
+  animation: pop 0.35s cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+.sticker-error {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 14px;
+  background: #ff4d4d;
+  color: #fff;
+  transform: rotate(-1.5deg);
+}
+.sticker-ok {
+  background: #fff;
+  transform: rotate(1deg);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sticker-title {
+  font-size: clamp(20px, 5.5vw, 28px);
+  color: #19b84a;
+  -webkit-text-stroke: 1px #000;
+}
+.link-box {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: clamp(12px, 3.4vw, 16px);
+  word-break: break-all;
+  background: #ffe600;
+  border: 3px dashed #000;
+  padding: 8px;
+  color: #000;
+  text-decoration: none;
+}
+.btn-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.marquee {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  color: #ffe600;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  font-weight: 900;
+  font-size: 18px;
+  z-index: 5;
+}
+.marquee-track {
+  display: inline-block;
+  animation: marquee 22s linear infinite;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0) rotate(-8deg); }
+  to   { transform: translateY(-14px) rotate(8deg); }
+}
+@keyframes wobble {
+  0%, 100% { transform: rotate(-3deg) scale(1); }
+  50%      { transform: rotate(-1deg) scale(1.03); }
+}
+@keyframes pop {
+  from { transform: scale(0.4) rotate(-8deg); opacity: 0; }
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* ============ TOMATO STAGE ============ */
+.stage {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background: #000;
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.stage-shake {
+  position: absolute;
+  inset: 0;
+}
+.stage-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.splat-layer,
+.flight-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.flying {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.splat {
+  position: absolute;
+  pointer-events: none;
+}
+.splat-pop {
+  width: 100%;
+  height: 100%;
+  animation: splat-pop 0.32s cubic-bezier(0.15, 1.7, 0.35, 1) both;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.35));
+}
+@keyframes splat-pop {
+  0%   { scale: 0.15; opacity: 0.4; }
+  100% { scale: 1; opacity: 1; }
+}
+.drip {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  transform: scaleY(0);
+  animation-name: drip;
+  animation-timing-function: cubic-bezier(0.3, 0.6, 0.4, 1);
+  animation-fill-mode: forwards;
+}
+@keyframes drip {
+  to { transform: scaleY(1); }
+}
+.burst {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -0.5em 0 0 -0.5em;
+  border-radius: 50%;
+  background: #d51b12;
+  animation: burst 0.5s ease-out forwards;
+}
+@keyframes burst {
+  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0.3); opacity: 0; }
+}
+
+.hint {
+  position: absolute;
+  left: 50%;
+  top: 14%;
+  transform: translateX(-50%) rotate(-3deg);
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(26px, 8vw, 56px);
+  color: #fff;
+  -webkit-text-stroke: 3px #000;
+  paint-order: stroke fill;
+  text-shadow: 4px 5px 0 #000;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: hint 1s ease-in-out infinite alternate;
+}
+@keyframes hint {
+  to { transform: translateX(-50%) rotate(2deg) scale(1.08); }
+}
+
+.hud {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 10px calc(10px + env(safe-area-inset-bottom));
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  cursor: default;
+}
+.hud-btn {
+  font-family: "Arial Black", Impact, "Noto Sans Thai", sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  border: 3px solid #fff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+}
+.hud-btn:active {
+  transform: scale(0.94);
+}
+.hud-new {
+  background: #ff2d20;
+}
+
+@media (max-width: 420px) {
+  .hud-btn span {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-tomato, .meme-title, .marquee-track, .hint { animation: none; }
+}

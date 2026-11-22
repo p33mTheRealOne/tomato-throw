@@ -1,0 +1,10 @@
+node_modules
+.next
+.uploads
+.env
+.env.*
+!.env.example
+.vercel
+.DS_Store
+next-env.d.ts
+*.tsbuildinfo
